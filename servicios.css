@@ -1,0 +1,415 @@
+/* ============================================================
+   DEVCORE — servicios.css
+   Estilos específicos de la página de servicios
+   Paleta heredada: Navy #0B2D72 | Ocean #0992C2 | Cyan #0AC4E0
+                    Cream #F6E7BC | Ink #071a46 | White #ffffff
+   ============================================================ */
+
+/* ── LINK ACTIVO EN NAVBAR ── */
+.navbar ul li a.nav-active {
+    color: var(--cream);
+}
+
+.navbar ul li a.nav-active::after {
+    width: 100%;
+}
+
+/* ── STATS BAR ── */
+.stats-bar {
+    width: 100%;
+    background: var(--ink);
+    padding: 32px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    flex-wrap: wrap;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 48px;
+    animation: heroIn 0.85s cubic-bezier(.22,1,.36,1) both;
+}
+
+.stat:nth-child(3) { animation-delay: 0.1s; }
+.stat:nth-child(5) { animation-delay: 0.2s; }
+
+.stat-num {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 2rem;
+    color: var(--cyan);
+    line-height: 1;
+}
+
+.stat-label {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(246,231,188,0.45);
+    margin-top: 6px;
+    white-space: nowrap;
+}
+
+.stat-sep {
+    width: 1px;
+    height: 36px;
+    background: rgba(246,231,188,0.1);
+    flex-shrink: 0;
+}
+
+/* ── SECCIÓN PRINCIPAL SERVICIOS ── */
+.servicios-seccion {
+    width: 100%;
+    background: var(--cream);
+    padding: 80px 6% 92px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ── HEADER DE SERVICIOS ── */
+.servicios-header {
+    text-align: center;
+    margin-bottom: 52px;
+}
+
+.servicios-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.9rem, 4vw, 3rem);
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 16px;
+    position: relative;
+    display: inline-block;
+}
+
+.servicios-header h1::after {
+    content: "";
+    display: block;
+    width: 44px;
+    height: 3px;
+    background: var(--cyan);
+    margin: 14px auto 0;
+}
+
+.servicios-header .subtitle {
+    font-size: 0.93rem;
+    color: rgba(11,45,114,0.52);
+    max-width: 480px;
+    line-height: 1.85;
+    margin: 0 auto;
+}
+
+/* ── FILTROS ── */
+.filtros {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 32px;
+}
+
+.filtro-btn {
+    background: transparent;
+    border: 1.5px solid var(--cream-dim);
+    color: rgba(11,45,114,0.5);
+    font-family: 'Syne', sans-serif;
+    font-size: 0.73rem;
+    font-weight: 600;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    padding: 9px 24px;
+    cursor: pointer;
+    transition: background 0.22s, border-color 0.22s, color 0.22s;
+}
+
+.filtro-btn:hover,
+.filtro-btn.activo {
+    background: var(--navy);
+    border-color: var(--navy);
+    color: var(--cream);
+}
+
+/* ── LEYENDA ── */
+.servicios-leyenda {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    margin-bottom: 52px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.leyenda-item {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-family: 'Syne', sans-serif;
+    font-size: 0.76rem;
+    font-weight: 500;
+    color: rgba(11,45,114,0.55);
+    letter-spacing: 0.04em;
+}
+
+.dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.dot-popular {
+    background: var(--ocean);
+}
+
+.dot-recomendado {
+    background: var(--cyan);
+    animation: pulseGlow 2.2s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(10,196,224,0.45); }
+    50%       { box-shadow: 0 0 0 5px rgba(10,196,224,0);  }
+}
+
+/* ── GRID DE SERVICIOS ── */
+.servicios-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    width: 100%;
+    max-width: 1120px;
+}
+
+/* ── CARD BASE ── */
+.servicio-card {
+    position: relative;
+    background: var(--white);
+    border: 1.5px solid var(--cream-dim);
+    padding: 32px 26px 26px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.28s cubic-bezier(.22,1,.36,1),
+                box-shadow 0.28s cubic-bezier(.22,1,.36,1);
+    overflow: hidden;
+}
+
+/* Línea de color superior */
+.servicio-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--cream-dim);
+    transition: background 0.28s ease;
+}
+
+.servicio-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 44px rgba(11,45,114,0.1);
+}
+
+/* ── CARD POPULAR ── */
+.servicio-card.popular::before {
+    background: var(--ocean);
+}
+
+.servicio-card.popular:hover {
+    box-shadow: 0 14px 44px rgba(9,146,194,0.14);
+}
+
+/* ── CARD RECOMENDADA ── */
+.servicio-card.recomendado::before {
+    background: var(--cyan);
+}
+
+.servicio-card.recomendado {
+    border-color: rgba(10,196,224,0.22);
+}
+
+.servicio-card.recomendado:hover {
+    box-shadow: 0 14px 44px rgba(10,196,224,0.16);
+}
+
+/* ── BADGE ── */
+.servicio-badge {
+    position: absolute;
+    top: 15px;
+    right: 16px;
+    font-family: 'Syne', sans-serif;
+    font-size: 0.58rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    line-height: 1.6;
+}
+
+.badge-popular {
+    background: var(--ocean);
+    color: var(--white);
+}
+
+.badge-recomendado {
+    background: var(--cyan);
+    color: var(--navy);
+}
+
+/* ── ICONO ── */
+.servicio-icon {
+    margin-bottom: 16px;
+}
+
+.servicio-icon i {
+    font-size: 1.7rem;
+    color: var(--cyan);
+    transition: transform 0.25s cubic-bezier(.22,1,.36,1);
+}
+
+.servicio-card:hover .servicio-icon i {
+    transform: scale(1.12) translateY(-2px);
+}
+
+/* ── NOMBRE ── */
+.servicio-nombre {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: 0.02em;
+    line-height: 1.3;
+    margin-bottom: 10px;
+}
+
+/* ── SEPARADOR ── */
+.servicio-sep {
+    width: 24px;
+    height: 2px;
+    background: var(--cyan);
+    margin-bottom: 14px;
+    flex-shrink: 0;
+    opacity: 0.7;
+    border-radius: 1px;
+}
+
+/* ── DESCRIPCIÓN ── */
+.servicio-desc {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.81rem;
+    color: rgba(11,45,114,0.52);
+    line-height: 1.8;
+    margin-bottom: 22px;
+    flex-grow: 1;
+}
+
+/* ── PRECIO ── */
+.servicio-precio {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    margin-bottom: 18px;
+    flex-shrink: 0;
+}
+
+.precio-valor {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: var(--navy);
+    line-height: 1;
+}
+
+.precio-label {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.71rem;
+    font-weight: 500;
+    color: rgba(11,45,114,0.42);
+    letter-spacing: 0.04em;
+}
+
+/* ── INGENIEROS ── */
+.ingenieros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+.ingeniero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: 'Syne', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: rgba(11,45,114,0.58);
+    background: rgba(11,45,114,0.055);
+    border: 1px solid rgba(11,45,114,0.1);
+    padding: 4px 10px;
+}
+
+.ingeniero-tag i {
+    font-size: 0.72rem;
+    color: var(--ocean);
+}
+
+/* ── SCROLL REVEAL ── */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s cubic-bezier(.22,1,.36,1),
+                transform 0.6s cubic-bezier(.22,1,.36,1);
+}
+
+.reveal.in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ── CARD OCULTA POR FILTRO ── */
+.servicio-card.hidden {
+    display: none;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 960px) {
+    .servicios-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stat {
+        padding: 0 32px;
+    }
+}
+
+@media (max-width: 600px) {
+    .servicios-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .servicios-seccion {
+        padding: 60px 5% 76px;
+    }
+
+    .stats-bar {
+        padding: 28px 5%;
+        gap: 12px;
+    }
+
+    .stat {
+        padding: 10px 24px;
+    }
+
+    .stat-sep {
+        display: none;
+    }
+}

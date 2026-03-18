@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios — DevCore</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/31ebb5475e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="servicios.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <ul>
+            <li><a href="index.html">¿Quiénes somos?</a></li>
+            <li><a href="servicios.html" class="nav-active">Servicios</a></li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <div class="contenido">
+
+        <!-- HERO -->
+        <div class="seccion">
+            <h1>Nuestros<br>servicios</h1>
+            <p>Soluciones de ingeniería diseñadas para cada etapa de tu proyecto. Transparencia de precios, tecnología de primer nivel y un equipo comprometido con los resultados.</p>
+        </div>
+
+        <!-- STATS BAR -->
+        <div class="stats-bar">
+            <div class="stat">
+                <span class="stat-num">15</span>
+                <span class="stat-label">Servicios disponibles</span>
+            </div>
+            <div class="stat-sep"></div>
+            <div class="stat">
+                <span class="stat-num">2</span>
+                <span class="stat-label">Ingenieros especializados</span>
+            </div>
+            <div class="stat-sep"></div>
+            <div class="stat">
+                <span class="stat-num">100%</span>
+                <span class="stat-label">Consulta inicial gratuita</span>
+            </div>
+        </div>
+
+        <!-- SECCIÓN SERVICIOS -->
+        <section class="servicios-seccion">
+
+            <div class="servicios-header">
+                <h1>Catálogo completo</h1>
+                <p class="subtitle">Los precios son referenciales y se ajustan al alcance de cada proyecto. Incluye consulta inicial sin costo.</p>
+            </div>
+
+            <!-- Filtros -->
+            <div class="filtros">
+                <button class="filtro-btn activo" data-filter="all">Todos los servicios</button>
+                <button class="filtro-btn" data-filter="axel">Axel Dueñas</button>
+                <button class="filtro-btn" data-filter="jose">José Beltran</button>
+            </div>
+
+            <!-- Leyenda de badges -->
+            <div class="servicios-leyenda">
+                <div class="leyenda-item">
+                    <span class="dot dot-popular"></span>
+                    <span>Más contratado</span>
+                </div>
+                <div class="leyenda-item">
+                    <span class="dot dot-recomendado"></span>
+                    <span>Recomendado</span>
+                </div>
+            </div>
+
+            <!-- Grid -->
+            <div class="servicios-grid" id="servicios-grid">
+
+                <!-- 1 -->
+                <article class="servicio-card popular reveal" data-engineers="axel">
+                    <span class="servicio-badge badge-popular">Más contratado</span>
+                    <div class="servicio-icon"><i class="fa-solid fa-code"></i></div>
+                    <h2 class="servicio-nombre">Desarrollo Web Fullstack</h2>
+                    <div class="servicio-sep"></div>
+                    <p class="servicio-desc">Diseño y desarrollo de aplicaciones web completas, desde el frontend hasta la capa de datos, con foco en rendimiento y escalabilidad.</p>
+                    <div class="servicio-precio">
+                        <span class="precio-label">desde</span>
+                        <span class="precio-valor">$2,500</span>
+                    </div>
+                    <div class="ingenieros">
+                        <span class="ingeniero-tag" data-eng="axel">
+                            <i class="fa-solid fa-circle-user"></i> Axel Dueñas
+                        </span>
+                    </div>
+                </article>
+
+                <!-- 2 -->
+                <article class="servicio-card reveal" data-engineers="axel jose">
+                    <div class="servicio-icon"><i class="fa-solid fa-plug"></i></div>
+                    <h2 class="servicio-nombre">Diseño de API REST</h2>
+                    <div class="servicio-sep"></div>
+                    <p class="servicio-desc">Arquitectura e implementación de APIs RESTful escalables, con documentación completa y pruebas automatizadas.</p>
+                    <div class="servicio-precio">
+                        <span class="precio-label">desde</span>
+                        <span class="precio-valor">$800</span>
+                    </div>
+                    <div class="ingenieros">
+                        <span class="ingeniero-tag" data-eng="axel">
+                            <i class="fa-solid fa-circle-user"></i> Axel Dueñas
+                        </span>
+                        <span class="ingeniero-tag" data-eng="jose">
+                            <i class="fa-solid fa-circle-user"></i> José Beltran
+                        </span>
+                    </div>
+                </article>
+
+                <!-- 3 -->
+                <article class="servicio-card recomendado reveal" data-engineers="jose">
+                    <span class="servicio-badge badge-recomendado">Recomendado</span>
+                    <div class="servicio-icon"><i class="fa-solid fa-cubes"></i></div>
+                    <h2 class="servicio-nombre">Arquitectura de Microservicios</h2>
+                    <div class="servicio-sep"></div>
+                    <p class="servicio-desc">Diseño de sistemas distribuidos de alta disponibilidad con desacoplamiento entre servicios y comunicación eficiente.</p>
+                    <div class="servicio-precio">
+                        <span class="precio-label">desde</span>
+                        <span class="precio-valor">$1,800</span>
+                    </div>
+                    <div class="ingenieros">
+                        <span class="ingeniero-tag" data-eng="jose">
+                            <i class="fa-solid fa-circle-user"></i> José Beltran
+                        </span>
+                    </div>
+                </article>
+
+                <!-- 4 -->
+                <article class="servicio-card reveal" data-engineers="jose">
+                    <div class="servicio-icon"><i class="fa-solid fa-cloud"></i></div>
+                    <h2 class="servicio-nombre">Despliegue en AWS</h2>
+                    <div class="servicio-sep"></div>
+                    <p class="servicio-desc">Configuración y despliegue de infraestructura en Amazon Web Services aplicando mejores prácticas de seguridad y costo.</p>
+                    <div class="servicio-precio">
+                        <span class="precio-label">desde</span>
+                        <span class="precio-valor">$600</span>
+                    </div>
+                    <div class="ingenieros">
+                        <span class="ingeniero-tag" data-eng="jose">
+                            <i class="fa-solid fa-circle-user"></i> José Beltran
+                        </span>
+                    </div>
+                </article>
+
+                <!-- 5 -->
+                <article class="servicio-card reveal" data-engineers="axel jose">
+                    <div class="servicio-icon"><i class="fa-solid fa-database"></i></div>
+                    <h2 class="servicio-nombre">Modelado de Bases de Datos</h2>
+                    <div class="servicio-sep"></div>
+                    <p class="servicio-desc">Diseño de esquemas relacionales y no relacionales optimizados para el rendimiento, integridad y mantenibilidad a largo plazo.</p>
+                    <div class="servicio-precio">
+                        <span class="precio-label">desde</span>
+                        <span class="precio-valor">$500</span>
+                    </div>
+                    <div class="ingenieros">
+                        <span class="ingeniero-tag" data-eng="axel">
+                            <i class="fa-solid fa-circle-user"></i> Axel Dueñas
+                        </span>
+                        <span class="ingeniero-tag" data-eng="jose">
+                            <i class="fa-solid fa-circle-user"></i> José Beltran
+                        </span>
+                    </div>
+                </article>
+
+                <!-- 6 -->
+                <article class="servicio-card popular reveal" data-engineers="axel">
+                    <span class="servicio-badge badge-popular">Más contratado</span>
+                    <div class="servicio-icon"><i class="fa-solid fa-display"></i></div>
+                    <h2 class="servicio-nombre">Interfaces de Usuario</h2>
+                    <div class="servicio-sep"></div>
+                    <p class="servicio-desc">Desarrollo de interfaces modernas, responsivas y accesibles con React y las últimas tendencias de diseño web.</p>
+                    <div class="servicio-precio">
+                        <span class="precio-label">desde</span>
+                        <span class="precio-valor">$1,200</span>
+                    </div>
+                    <div class="ingenieros">
+                        <span class="ingeniero-tag" data-eng="axel">
+                            <i class="fa-solid fa-circle-user"></i> Axel Dueñas
+                        </span>
+                    </div>
+                </article>
+
+                <!-- 7 -->
+                <article class="servicio-card reveal" data-engineers="axel jose">
+                    <div class="servicio-icon"><i class="fa-solid fa-gauge-high"></i></div>
+                    <h2 class="servicio-nombre">Optimización de Rendimiento</h2>
+                    <div class="servicio-sep"></div>
+                    <p class="servicio-desc">Diagnóstico y mejora de tiempos de respuesta, consultas lentas y cuellos de botella en aplicaciones web existentes.</p>
+                    <div class="servicio-precio">
+                        <span class="precio-label">desde</span>
+                        <span class="precio-valor">$700</span>
+                    </div>
+                    <div class="ingenieros">
+                        <span class="ingeniero-tag" data-eng="axel">
+                            <i class="fa-solid fa-circle-user"></i> Axel Dueñas
+                        </span>
+                        <span class="ingeniero-tag" data-eng="jose">
+                            <i class="fa-solid fa-circle-user"></i> José Beltran
+                        </span>
+                    </div>
+                </article>
+
+                <!-- 8 -->
+                <article class="servicio-card reveal" data-engineers="jose">
+                    <div class="servicio-icon"><i class="fa-solid fa-sitemap"></i></div>
+                    <h2 class="servicio-nombre">Integración de Sistemas</h2>
+                    <div class="servicio-sep"></div>
+                    <p class="servicio-desc">Conexión de plataformas heterogéneas, servicios externos y sistemas internos mediante APIs, webhooks y colas de mensajes.</p>
+                    <div class="servicio-precio">
+                        <span class="precio-label">desde</span>
+                        <span class="precio-valor">$900</span>
+                    </div>
+                    <div class="ingenieros">
+                        <span class="ingeniero-tag" data-eng="jose">
+                            <i class="fa-solid fa-circle-user"></i> José Beltran
+                        </span>
+                    </div>
+                </article>
+
+                <!-- 9 -->
+                <article class="servicio-card reveal" data-engineers="axel jose">
+                    <div class="servicio-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h2 class="servicio-nombre">Auditoría de Código</h2>
+                    <div class="servicio-sep"></div>
+                    <p class="servicio-desc">Revisión técnica del código fuente con informe de vulnerabilidades, deuda técnica y mejoras prioritarias con plan de acción.</p>
+                    <div class="servicio-precio">
+                        <span class="precio-label">desde</span>
+                        <span class="precio-valor">$400</span>
+                    </div>
+                    <div class="ingenieros">
+                        <span class="ingeniero-tag" data-eng="axel">
+                            <i class="fa-solid fa-circle-user"></i> Axel Dueñas
+                        </span>
+                        <span class="ingeniero-tag" data-eng="jose">
+                            <i class="fa-solid fa-circle-user"></i> José Beltran
+                        </span>
+                    </div>
+                </article>
+
+                <!-- 10 -->
+                <article class="servicio-card recomendado reveal" data-engineers="axel jose">
+                    <span class="servicio-badge badge-recomendado">Recomendado</span>
+                    <div class="servicio-icon"><i class="fa-solid fa-comments"></i></div>
+                    <h2 class="servicio-nombre">Consultoría Técnica</h2>
+                    <div class="servicio-sep"></div>
+                    <p class="servicio-desc">Sesiones de asesoría para decisiones tecnológicas, elección de stack, planificación de arquitectura y revisión de proyectos.</p>
+                    <div class="servicio-precio">
+                        <span class="precio-valor">$150</span>
+                        <span class="precio-label">/ hora</span>
+                    </div>
+                    <div class="ingenieros">
+                        <span class="ingeniero-tag" data-eng="axel">
+                            <i class="fa-solid fa-circle-user"></i> Axel Dueñas
+                        </span>
+                        <span class="ingeniero-tag" data-eng="jose">
+                            <i class="fa-solid fa-circle-user"></i> José Beltran
+                        </span>
+                    </div>
+                </article>
+
+                <!-- 11 -->
+                <article class="servicio-card recomendado reveal" data-engineers="jose">
+                    <span class="servicio-badge badge-recomendado">Recomendado</span>
+                    <div class="servicio-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+                    <h2 class="servicio-nombre">Migración a la Nube</h2>
+                    <div class="servicio-sep"></div>
+                    <p class="servicio-desc">Transición de infraestructura local a servicios cloud con mínimo tiempo de inactividad y estrategia de rollback definida.</p>
+                    <div class="servicio-precio">
+                        <span class="precio-label">desde</span>
+                        <span class="precio-valor">$2,000</span>
+                    </div>
+                    <div class="ingenieros">
+                        <span class="ingeniero-tag" data-eng="jose">
+                            <i class="fa-solid fa-circle-user"></i> José Beltran
+                        </span>
+                    </div>
+                </article>
+
+                <!-- 12 -->
+                <article class="servicio-card popular reveal" data-engineers="axel">
+                    <span class="servicio-badge badge-popular">Más contratado</span>
+                    <div class="servicio-icon"><i class="fa-solid fa-chart-line"></i></div>
+                    <h2 class="servicio-nombre">Dashboards & Analítica</h2>
+                    <div class="servicio-sep"></div>
+                    <p class="servicio-desc">Paneles de control interactivos para visualización de datos en tiempo real, métricas clave e inteligencia de negocio.</p>
+                    <div class="servicio-precio">
+                        <span class="precio-label">desde</span>
+                        <span class="precio-valor">$1,000</span>
+                    </div>
+                    <div class="ingenieros">
+                        <span class="ingeniero-tag" data-eng="axel">
+                            <i class="fa-solid fa-circle-user"></i> Axel Dueñas
+                        </span>
+                    </div>
+                </article>
+
+                <!-- 13 -->
+                <article class="servicio-card reveal" data-engineers="jose">
+                    <div class="servicio-icon"><i class="fa-solid fa-lock"></i></div>
+                    <h2 class="servicio-nombre">Seguridad de Aplicaciones</h2>
+                    <div class="servicio-sep"></div>
+                    <p class="servicio-desc">Evaluación y refuerzo de seguridad: autenticación, autorización, cifrado y protección frente a vulnerabilidades OWASP.</p>
+                    <div class="servicio-precio">
+                        <span class="precio-label">desde</span>
+                        <span class="precio-valor">$850</span>
+                    </div>
+                    <div class="ingenieros">
+                        <span class="ingeniero-tag" data-eng="jose">
+                            <i class="fa-solid fa-circle-user"></i> José Beltran
+                        </span>
+                    </div>
+                </article>
+
+                <!-- 14 -->
+                <article class="servicio-card reveal" data-engineers="jose">
+                    <div class="servicio-icon"><i class="fa-solid fa-gears"></i></div>
+                    <h2 class="servicio-nombre">Automatización de Procesos</h2>
+                    <div class="servicio-sep"></div>
+                    <p class="servicio-desc">Desarrollo de scripts, pipelines y workflows para eliminar tareas manuales repetitivas y optimizar flujos operativos.</p>
+                    <div class="servicio-precio">
+                        <span class="precio-label">desde</span>
+                        <span class="precio-valor">$750</span>
+                    </div>
+                    <div class="ingenieros">
+                        <span class="ingeniero-tag" data-eng="jose">
+                            <i class="fa-solid fa-circle-user"></i> José Beltran
+                        </span>
+                    </div>
+                </article>
+
+                <!-- 15 -->
+                <article class="servicio-card popular reveal" data-engineers="axel jose">
+                    <span class="servicio-badge badge-popular">Más contratado</span>
+                    <div class="servicio-icon"><i class="fa-solid fa-headset"></i></div>
+                    <h2 class="servicio-nombre">Mantenimiento & Soporte</h2>
+                    <div class="servicio-sep"></div>
+                    <p class="servicio-desc">Plan mensual de soporte técnico activo: monitoreo, actualizaciones de seguridad, corrección de errores y mejoras incrementales.</p>
+                    <div class="servicio-precio">
+                        <span class="precio-label">desde</span>
+                        <span class="precio-valor">$300</span>
+                        <span class="precio-label precio-label-unit">/ mes</span>
+                    </div>
+                    <div class="ingenieros">
+                        <span class="ingeniero-tag" data-eng="axel">
+                            <i class="fa-solid fa-circle-user"></i> Axel Dueñas
+                        </span>
+                        <span class="ingeniero-tag" data-eng="jose">
+                            <i class="fa-solid fa-circle-user"></i> José Beltran
+                        </span>
+                    </div>
+                </article>
+
+            </div><!-- /.servicios-grid -->
+
+        </section>
+
+        <!-- CTA -->
+        <div class="seccion-cta">
+            <p>¿Tienes un proyecto en mente?</p>
+            <a href="index.html#integrantes">Habla con el equipo</a>
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <span class="footer-mark">DEVCORE</span>
+        <p>© 2025 — Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="servicios.js"></script>
+</body>
+</html>
