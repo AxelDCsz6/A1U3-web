@@ -2,74 +2,94 @@
 <html lang="es">
 <head>
     <meta charset="utf-8" />
-    <title>Equipo de desarrollo</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipo de Desarrollo — DevCore</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/31ebb5475e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+    <!-- NAVBAR -->
     <div class="navbar">
         <ul>
-            <li>
-                <a href="#integrantes">¿Quienes somos?</a>
-            </li>
-            <li>
-                <a href="servicios.html">Servicios</a>
-            </li>
+            <li><a href="#ancla">¿Quiénes somos?</a></li>
+            <li><a href="servicios.html">Servicios</a></li>
         </ul>
     </div>
+
     <hr>
+
+    <!-- CONTENIDO PRINCIPAL -->
     <div class="contenido">
+
+        <!-- HERO -->
         <div class="seccion">
-            <h1>Equipo de desarrollo</h1>
-            <p>Somos un equipo de desarrollo orientado a proyectos con implemetanción integral y conocimientos en diversas areas de la informática</p>
+            <h1>Equipo de<br>desarrollo</h1>
+            <p>Somos un equipo orientado a proyectos con implementación integral y conocimientos en diversas áreas de la informática: desde arquitectura de sistemas hasta interfaces de usuario. Construimos software que escala contigo.</p>
+            <p id="ancla"></p>
         </div>
+
+        <!-- QUIÉNES SOMOS -->
         <div id="integrantes" class="content-tag">
-            <h1>¿Quienes somos?</h1>
+            <h1>¿Quiénes somos?</h1>
+            <p class="subtitle">Personas apasionadas por la tecnología, comprometidas con la calidad del código y enfocadas en entregar resultados concretos en cada proyecto.</p>
             <div>
-            <div class="contenedor-tarjetas">
-                <div class="card">
-                    <div class="slide slide1">
-                        <div class="content">
-                            <div class="icon">
-                                <i class="fa fa-user-circle" aria-hidden="true"></i>
-                                <h3>Axel Dueñas</h3>
+                <div class="contenedor-tarjetas">
+
+                    <div class="card">
+                        <div class="slide slide1">
+                            <div class="content">
+                                <div class="icon">
+                                    <i class="fa fa-user-circle" aria-hidden="true"></i>
+                                    <h3>Axel Dueñas</h3>
+                                </div>
                             </div>
                         </div>
-                </div>
-                <div class="slide slide2">
-                    <div class="content">
-                        <h3>
-                            Fullstack developer
-                        </h3>
+                        <div class="slide slide2">
+                            <div class="content">
+                                <h3>Fullstack Developer</h3>
+                                <p>React · Node.js · PostgreSQL<br>Arquitectura de APIs REST y diseño de interfaces de usuario.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="slide slide1">
+                            <div class="content">
+                                <div class="icon">
+                                    <i class="fa fa-user-circle" aria-hidden="true"></i>
+                                    <h3>José Beltran</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide slide2">
+                            <div class="content">
+                                <h3>Backend Developer</h3>
+                                <p>Python · Django · AWS<br>Microservicios, bases de datos y despliegue en la nube.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="contenedor-tarjetas">
-                <div class="card">
-                    <div class="slide slide1">
-                        <div class="content">
-                            <div class="icon">
-                                <i class="fa fa-user-circle" aria-hidden="true"></i>
-                                <h3>Axel Dueñas</h3>
-                            </div>
-                        </div>
-                </div>
-                <div class="slide slide2">
-                    <div class="content">
-                        <h3>
-                            Fullstack developer
-                        </h3>
-                    </div>
-                </div>
-            </div>
-            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="seccion-cta">
+            <p>¿Listo para empezar con tu proyecto?</p>
+            <a href="servicios.html">Mira nuestros servicios</a>
+        </div>
+
     </div>
-    <div class="seccion">
-                <p>Listo para empezar con tu proyecto</p><a href="servicios.html">Contactanos</a>
-            </div>
+
+    <!-- FOOTER -->
     <footer>
-    <hr>
-    <p>mmdas xd</p>
-</footer>
+        <span class="footer-mark">DEVCORE</span>
+        <p>© 2025 — Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="scripts.js"></script>
 </body>
 </html>
+
