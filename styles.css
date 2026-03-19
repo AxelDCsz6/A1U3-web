@@ -13,6 +13,7 @@
     --cream-dim: #e8d89e;
     --ink:       #071a46;
     --white:     #ffffff;
+    --card-expanded-height: 480px;
 }
 
 /* ── RESET ── */
@@ -49,7 +50,6 @@ body {
     z-index: 200;
 }
 
-/* Logotipo generado con CSS pseudo-elemento */
 .navbar::before {
     content: "DEVCORE";
     font-family: 'Syne', sans-serif;
@@ -77,7 +77,6 @@ body {
     transition: color 0.2s;
 }
 
-/* Línea animada bajo el link al hacer hover */
 .navbar ul li a::after {
     content: "";
     position: absolute;
@@ -119,7 +118,6 @@ hr {
     overflow: hidden;
 }
 
-/* Círculo decorativo top-right */
 .seccion::before {
     content: "";
     position: absolute;
@@ -132,7 +130,6 @@ hr {
     pointer-events: none;
 }
 
-/* Línea de acento inferior izquierda */
 .seccion::after {
     content: "";
     position: absolute;
@@ -172,6 +169,7 @@ hr {
     width: 100%;
     padding: 80px 6% 76px;
     background: var(--cream);
+    transition: padding-bottom 0.75s cubic-bezier(.22,1,.36,1);
 }
 
 .content-tag h1 {
@@ -184,7 +182,6 @@ hr {
     display: inline-block;
 }
 
-/* Línea de acento bajo el título de sección */
 .content-tag h1::after {
     content: "";
     display: block;
@@ -204,40 +201,40 @@ hr {
 
 /* ── CONTENEDOR DE TARJETAS ── */
 .contenedor-tarjetas {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    width: 100%;
+    transition: margin-bottom 0.75s cubic-bezier(.22,1,.36,1);
 }
 
-/* ── CARD FLIP ── */
+/* ── CARD ── */
 .card {
     position: relative;
-    width: 260px;
+    overflow: visible;
+    z-index: 1;
 }
 
-.card .slide {
-    width: 260px;
-    height: 200px;
-    transition: 0.5s;
+.card:hover {
+    z-index: 100;
 }
 
-/* Cara frontal */
+/* Cara frontal — compacta, ancho completo */
 .card .slide.slide1 {
-    position: relative;
-    height: 200px;
+    width: 100%;
+    height: 180px;
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1;
-    transition: .7s;
-    transform: translateY(0px);
+    position: relative;
+    z-index: 2;
     background: var(--navy);
     overflow: hidden;
+    cursor: pointer;
+    transition: height 0.5s cubic-bezier(.22,1,.36,1);
 }
 
-/* Textura de puntos cian sobre slide1 */
+/* Textura de puntos cian */
 .card .slide.slide1::before {
     content: "";
     position: absolute;
@@ -245,6 +242,24 @@ hr {
     background-image: radial-gradient(circle, rgba(10,196,224,0.15) 1px, transparent 1px);
     background-size: 20px 20px;
     pointer-events: none;
+}
+
+/* Indicador "hover para ver más" */
+.card .slide.slide1::after {
+    content: "Pasa el cursor para ver CV ↓";
+    position: absolute;
+    bottom: 12px;
+    right: 20px;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: rgba(10,196,224,0.5);
+    text-transform: uppercase;
+    transition: opacity 0.3s;
+}
+
+.card:hover .slide.slide1::after {
+    opacity: 0;
 }
 
 .card .slide.slide1 .content {
@@ -255,89 +270,310 @@ hr {
     justify-content: center;
     position: relative;
     z-index: 1;
-    background: transparent;
-}
-
-.card:hover .slide.slide1 {
-    transform: translateY(0px);
 }
 
 .card .slide.slide1 .icon {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
-    background: transparent;
+    gap: 8px;
 }
 
 .card .slide.slide1 .icon i {
     font-size: 3rem;
     color: var(--cyan);
-    background: transparent;
 }
 
 .card .slide.slide1 .icon h3 {
     font-family: 'Syne', sans-serif;
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 1.05rem;
     letter-spacing: 0.07em;
     color: var(--cream);
-    background: transparent;
 }
 
-/* Cara trasera — oculta por defecto, visible al hover */
-.card .slide.slide2 {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 22px 22px 40px;
-    box-sizing: border-box;
-    transition: .8s;
-    transform: translateY(-200px);
-    border: 2px solid var(--cream-dim);
-    border-top: 3px solid var(--cyan);
-    background: var(--white);
-}
-
-.card:hover .slide.slide2 {
-    transform: translateY(0);
-}
-
-.card .slide.slide2::after {
-    content: "";
-    position: absolute;
-    width: 32px;
-    height: 3px;
-    bottom: 14px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--ocean);
+.role-badge {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(10,196,224,0.8);
+    border: 1px solid rgba(10,196,224,0.35);
+    padding: 3px 10px;
     border-radius: 2px;
 }
 
-.card .slide.slide2 .content {
-    background: transparent;
+/* ── SLIDE 2 — PANEL OVERLAY FULL-WIDTH ── */
+.card .slide.slide2 {
+    position: absolute;
+    top: 180px;
+    width: 100vw;
+    z-index: 1;
+    height: 0;
+    overflow: hidden;
+    transition: height 0.75s cubic-bezier(.22,1,.36,1);
+    background: var(--white);
+    padding-bottom: 0;
 }
 
-.card .slide.slide2 .content h3 {
-    margin: 0 0 6px 0;
-    padding: 0;
-    font-size: 1rem;
+/* Card 1 (izquierda): su borde izquierdo está a 6vw del viewport */
+.card:nth-child(1) .slide.slide2 {
+    left: -6vw;
+}
+
+/* Card 2 (derecha): su borde izquierdo está a ~50vw + 16px del viewport
+   (6vw padding + mitad del contenedor - mitad del gap) */
+.card:nth-child(2) .slide.slide2 {
+    left: calc(-50vw - 16px);
+}
+
+/* altura gestionada por JS */
+
+/* Acento cian — ancho de la tarjeta padre, posición calculada por JS */
+.card .slide.slide2::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: var(--accent-left, 0px);
+    width: var(--accent-width, 50%);
+    height: 3px;
+    background: var(--cyan);
+    z-index: 3;
+}
+
+/* ── CONTENIDO EXPANDIDO DEL CV ── */
+.expanded-content {
+    width: 100%;
+    background: var(--white);
+}
+
+/* Cabecera del CV */
+.cv-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 28px 5% 22px;
+    border-bottom: 1px solid rgba(11,45,114,0.08);
+    background: var(--navy);
+}
+
+.cv-title h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
     font-weight: 700;
-    text-align: center;
-    color: var(--navy);
-    background: transparent;
+    color: var(--cream);
+    margin-bottom: 4px;
 }
 
-.card .slide.slide2 .content p {
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    color: rgba(11,45,114,0.55);
-    font-size: 0.82rem;
-    line-height: 1.75;
+.cv-role {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--cyan);
+}
+
+.cv-contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.cv-contact span {
+    font-size: 0.76rem;
+    color: rgba(246,231,188,0.65);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.cv-contact span i {
+    color: var(--cyan);
+    font-size: 0.72rem;
+}
+
+/* Grid del CV — 2 columnas */
+.cv-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    padding: 0 5%;
+}
+
+.cv-section {
+    padding: 28px 24px 24px 0;
+    border-bottom: 1px solid rgba(11,45,114,0.07);
+}
+
+.cv-section:nth-child(even) {
+    padding-left: 28px;
+    padding-right: 0;
+    border-left: 1px solid rgba(11,45,114,0.07);
+}
+
+.cv-section h4 {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ocean);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.cv-section h4 i {
+    font-size: 0.8rem;
+}
+
+/* Tags de habilidades */
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+.tag {
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 4px 11px;
+    border-radius: 2px;
+    letter-spacing: 0.05em;
+}
+
+.tag-primary {
+    background: var(--navy);
+    color: var(--cream);
+}
+
+.tag-secondary {
+    background: var(--ocean);
+    color: var(--white);
+}
+
+.tag-accent {
     background: transparent;
+    color: var(--navy);
+    border: 1.5px solid var(--cyan);
+}
+
+/* Timeline de experiencia */
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.tl-item {
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    gap: 12px;
+    align-items: start;
+}
+
+.tl-year {
+    font-size: 0.66rem;
+    font-weight: 700;
+    color: var(--cyan);
+    letter-spacing: 0.05em;
+    padding-top: 2px;
+    border-right: 2px solid rgba(10,196,224,0.3);
+    padding-right: 10px;
+    text-align: right;
+    line-height: 1.4;
+}
+
+.tl-body {
+    font-size: 0.8rem;
+    color: var(--navy);
+    line-height: 1.5;
+}
+
+.tl-body strong {
+    font-weight: 700;
+}
+
+.tl-body small {
+    color: rgba(11,45,114,0.5);
+    font-size: 0.73rem;
+    display: block;
+    margin-top: 2px;
+}
+
+/* Formación */
+.edu-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-bottom: 12px;
+}
+
+.edu-item strong {
+    font-size: 0.8rem;
+    color: var(--navy);
+    font-weight: 700;
+}
+
+.edu-item span {
+    font-size: 0.72rem;
+    color: rgba(11,45,114,0.5);
+}
+
+/* Proyectos */
+.project-item {
+    margin-bottom: 14px;
+}
+
+.project-name {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--ocean);
+    margin-bottom: 4px;
+    letter-spacing: 0.04em;
+}
+
+.project-item p {
+    font-size: 0.77rem;
+    color: rgba(11,45,114,0.6);
+    line-height: 1.6;
+    max-width: none;
+}
+
+/* ── BOTÓN "VER CV COMPLETO" ── */
+.cv-cta {
+    display: flex;
+    justify-content: center;
+    padding: 28px 5% 4px;
+    border-top: 1px solid rgba(11,45,114,0.07);
+    margin-top: 8px;
+}
+
+.cv-cta a {
+    display: inline-block;
+    background: var(--ocean);
+    color: var(--white);
+    text-decoration: none;
+    padding: 13px 36px;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    border: 2px solid transparent;
+    transition: background 0.22s, color 0.22s, border-color 0.22s, transform 0.18s;
+    white-space: nowrap;
+}
+
+.cv-cta a:hover {
+    background: transparent;
+    color: var(--ocean);
+    border-color: var(--ocean);
+    transform: translateY(-2px);
 }
 
 /* ── CTA ── */
@@ -399,7 +635,6 @@ footer p {
     font-size: 0.76rem;
     color: rgba(246,231,188,0.32);
     letter-spacing: 0.05em;
-    background: transparent;
 }
 
 .footer-mark {
@@ -408,12 +643,9 @@ footer p {
     font-size: 0.78rem;
     letter-spacing: 0.22em;
     color: var(--cyan);
-    background: transparent;
 }
 
 /* ── ANIMACIONES ── */
-
-/* Entrada del hero al cargar la página */
 @keyframes heroIn {
     from {
         opacity: 0;
@@ -422,5 +654,61 @@ footer p {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+/* Animación de entrada para las secciones del CV */
+@keyframes fadeSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card:hover .cv-section {
+    animation: fadeSlideIn 0.4s ease both;
+}
+
+.card:hover .cv-section:nth-child(1) { animation-delay: 0.05s; }
+.card:hover .cv-section:nth-child(2) { animation-delay: 0.12s; }
+.card:hover .cv-section:nth-child(3) { animation-delay: 0.19s; }
+.card:hover .cv-section:nth-child(4) { animation-delay: 0.26s; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+    .cv-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cv-section:nth-child(even) {
+        padding-left: 0;
+        border-left: none;
+    }
+
+    .cv-section {
+        border-bottom: 1px solid rgba(11,45,114,0.07);
+    }
+
+    .cv-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .contenedor-tarjetas {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        width: 100%;
+    }
+
+    .card:nth-child(1) .slide.slide2,
+    .card:nth-child(2) .slide.slide2 {
+        left: -6vw;
+        width: 100vw;
     }
 }

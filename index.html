@@ -35,44 +35,226 @@
         <div id="integrantes" class="content-tag">
             <h1>¿Quiénes somos?</h1>
             <p class="subtitle">Personas apasionadas por la tecnología, comprometidas con la calidad del código y enfocadas en entregar resultados concretos en cada proyecto.</p>
-            <div>
-                <div class="contenedor-tarjetas">
 
-                    <div class="card">
-                        <div class="slide slide1">
-                            <div class="content">
-                                <div class="icon">
-                                    <i class="fa fa-user-circle" aria-hidden="true"></i>
-                                    <h3>Axel Dueñas</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="slide slide2">
-                            <div class="content">
-                                <h3>Fullstack Developer</h3>
-                                <p>React · Node.js · PostgreSQL<br>Arquitectura de APIs REST y diseño de interfaces de usuario.</p>
+            <div class="contenedor-tarjetas">
+
+                <!-- CARD 1 — Axel Dueñas -->
+                <div class="card" data-index="0">
+                    <div class="slide slide1">
+                        <div class="content">
+                            <div class="icon">
+                                <i class="fa fa-user-circle" aria-hidden="true"></i>
+                                <h3>Axel Dueñas</h3>
+                                <span class="role-badge">Fullstack Developer</span>
                             </div>
                         </div>
                     </div>
+                    <div class="slide slide2">
+                        <div class="content expanded-content">
 
-                    <div class="card">
-                        <div class="slide slide1">
-                            <div class="content">
-                                <div class="icon">
-                                    <i class="fa fa-user-circle" aria-hidden="true"></i>
-                                    <h3>José Beltran</h3>
+                            <div class="cv-header">
+                                <div class="cv-title">
+                                    <h3>Axel Dueñas</h3>
+                                    <span class="cv-role">Fullstack Developer</span>
+                                </div>
+                                <div class="cv-contact">
+                                    <span><i class="fa fa-envelope"></i> axel@devcore.io</span>
+                                    <span><i class="fa fa-map-marker"></i> Morelia, MX</span>
+                                    <span><i class="fa fa-github"></i> github.com/axel-d</span>
                                 </div>
                             </div>
-                        </div>
-                        <div class="slide slide2">
-                            <div class="content">
-                                <h3>Backend Developer</h3>
-                                <p>Python · Django · AWS<br>Microservicios, bases de datos y despliegue en la nube.</p>
+
+                            <div class="cv-grid">
+
+                                <div class="cv-section">
+                                    <h4><i class="fa fa-code"></i> Stack Técnico</h4>
+                                    <div class="skill-tags">
+                                        <span class="tag tag-primary">React</span>
+                                        <span class="tag tag-primary">Next.js</span>
+                                        <span class="tag tag-primary">Node.js</span>
+                                        <span class="tag tag-secondary">TypeScript</span>
+                                        <span class="tag tag-secondary">PostgreSQL</span>
+                                        <span class="tag tag-secondary">MongoDB</span>
+                                        <span class="tag tag-accent">Docker</span>
+                                        <span class="tag tag-accent">REST APIs</span>
+                                        <span class="tag tag-accent">GraphQL</span>
+                                    </div>
+                                </div>
+
+                                <div class="cv-section">
+                                    <h4><i class="fa fa-briefcase"></i> Experiencia</h4>
+                                    <div class="timeline">
+                                        <div class="tl-item">
+                                            <span class="tl-year">2023 – hoy</span>
+                                            <div class="tl-body">
+                                                <strong>Lead Frontend</strong> — Startup Fintech<br>
+                                                <small>Dashboard de métricas en tiempo real para +2 000 usuarios</small>
+                                            </div>
+                                        </div>
+                                        <div class="tl-item">
+                                            <span class="tl-year">2021 – 2023</span>
+                                            <div class="tl-body">
+                                                <strong>Dev Fullstack</strong> — Agencia Digital<br>
+                                                <small>Desarrollo de e-commerce y sistemas de gestión de inventario</small>
+                                            </div>
+                                        </div>
+                                        <div class="tl-item">
+                                            <span class="tl-year">2020 – 2021</span>
+                                            <div class="tl-body">
+                                                <strong>Junior Frontend</strong> — Freelance<br>
+                                                <small>Sitios corporativos y landing pages para PyMEs locales</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="cv-section">
+                                    <h4><i class="fa fa-graduation-cap"></i> Formación</h4>
+                                    <div class="edu-item">
+                                        <strong>Lic. en Ingeniería en Software</strong>
+                                        <span>UNAM — 2020</span>
+                                    </div>
+                                    <div class="edu-item">
+                                        <strong>Certificación AWS Cloud Practitioner</strong>
+                                        <span>Amazon Web Services — 2022</span>
+                                    </div>
+                                    <div class="edu-item">
+                                        <strong>Meta Frontend Developer</strong>
+                                        <span>Coursera — 2023</span>
+                                    </div>
+                                </div>
+
+                                <div class="cv-section">
+                                    <h4><i class="fa fa-rocket"></i> Proyectos Destacados</h4>
+                                    <div class="project-item">
+                                        <span class="project-name">FinTrack App</span>
+                                        <p>Plataforma de seguimiento financiero personal con visualizaciones D3.js y sincronización en tiempo real vía WebSockets.</p>
+                                    </div>
+                                    <div class="project-item">
+                                        <span class="project-name">DevCore CMS</span>
+                                        <p>Sistema de gestión de contenido headless construido con Next.js y PostgreSQL, con soporte multi-idioma.</p>
+                                    </div>
+                                </div>
+
                             </div>
+
+                            <div class="cv-cta">
+                                <a href="#">Ver CV completo →</a>
+                            </div>
+
                         </div>
                     </div>
                 </div>
-            </div>
+
+                <!-- CARD 2 — José Beltran -->
+                <div class="card" data-index="1">
+                    <div class="slide slide1">
+                        <div class="content">
+                            <div class="icon">
+                                <i class="fa fa-user-circle" aria-hidden="true"></i>
+                                <h3>José Beltran</h3>
+                                <span class="role-badge">Backend Developer</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide slide2">
+                        <div class="content expanded-content">
+
+                            <div class="cv-header">
+                                <div class="cv-title">
+                                    <h3>José Beltran</h3>
+                                    <span class="cv-role">Backend Developer</span>
+                                </div>
+                                <div class="cv-contact">
+                                    <span><i class="fa fa-envelope"></i> jose@devcore.io</span>
+                                    <span><i class="fa fa-map-marker"></i> Morelia, MX</span>
+                                    <span><i class="fa fa-github"></i> github.com/jose-b</span>
+                                </div>
+                            </div>
+
+                            <div class="cv-grid">
+
+                                <div class="cv-section">
+                                    <h4><i class="fa fa-code"></i> Stack Técnico</h4>
+                                    <div class="skill-tags">
+                                        <span class="tag tag-primary">Python</span>
+                                        <span class="tag tag-primary">Django</span>
+                                        <span class="tag tag-primary">FastAPI</span>
+                                        <span class="tag tag-secondary">AWS</span>
+                                        <span class="tag tag-secondary">PostgreSQL</span>
+                                        <span class="tag tag-secondary">Redis</span>
+                                        <span class="tag tag-accent">Kubernetes</span>
+                                        <span class="tag tag-accent">CI/CD</span>
+                                        <span class="tag tag-accent">Terraform</span>
+                                    </div>
+                                </div>
+
+                                <div class="cv-section">
+                                    <h4><i class="fa fa-briefcase"></i> Experiencia</h4>
+                                    <div class="timeline">
+                                        <div class="tl-item">
+                                            <span class="tl-year">2022 – hoy</span>
+                                            <div class="tl-body">
+                                                <strong>Backend Engineer</strong> — SaaS B2B<br>
+                                                <small>Diseño de microservicios escalables con carga de +50 000 req/min</small>
+                                            </div>
+                                        </div>
+                                        <div class="tl-item">
+                                            <span class="tl-year">2020 – 2022</span>
+                                            <div class="tl-body">
+                                                <strong>Dev Backend</strong> — E-commerce<br>
+                                                <small>APIs de pagos, autenticación OAuth2 y procesamiento de pedidos</small>
+                                            </div>
+                                        </div>
+                                        <div class="tl-item">
+                                            <span class="tl-year">2019 – 2020</span>
+                                            <div class="tl-body">
+                                                <strong>Intern Dev</strong> — Consultoría TI<br>
+                                                <small>Scripts de automatización y pipelines ETL para reportes BI</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="cv-section">
+                                    <h4><i class="fa fa-graduation-cap"></i> Formación</h4>
+                                    <div class="edu-item">
+                                        <strong>Lic. en Ciencias de la Computación</strong>
+                                        <span>UMSNH — 2020</span>
+                                    </div>
+                                    <div class="edu-item">
+                                        <strong>AWS Solutions Architect Associate</strong>
+                                        <span>Amazon Web Services — 2022</span>
+                                    </div>
+                                    <div class="edu-item">
+                                        <strong>Google Cloud Professional Data Engineer</strong>
+                                        <span>Google — 2023</span>
+                                    </div>
+                                </div>
+
+                                <div class="cv-section">
+                                    <h4><i class="fa fa-rocket"></i> Proyectos Destacados</h4>
+                                    <div class="project-item">
+                                        <span class="project-name">CloudQueue</span>
+                                        <p>Sistema de colas distribuidas con SQS + Lambda para procesamiento asíncrono de facturas y notificaciones en tiempo real.</p>
+                                    </div>
+                                    <div class="project-item">
+                                        <span class="project-name">DevCore API Gateway</span>
+                                        <p>Gateway centralizado con rate limiting, autenticación JWT y monitoreo con Prometheus y Grafana.</p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="cv-cta">
+                                <a href="#">Ver CV completo →</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /.contenedor-tarjetas -->
         </div>
 
         <!-- CTA -->
@@ -92,4 +274,3 @@
     <script src="scripts.js"></script>
 </body>
 </html>
-
