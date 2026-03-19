@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="page-id" content="alta">
+    <title>Agregar Servicio — DevCore</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/31ebb5475e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="alta.css">
+</head>
+<body>
+
+    <div id="app">
+        <div class="alta-wrap">
+            <div class="alta-container">
+
+                <a href="servicios.html" class="alta-volver">
+                    <i class="fa-solid fa-arrow-left"></i> Volver al catálogo
+                </a>
+
+                <h1 class="alta-titulo">Agregar servicio</h1>
+                <p class="alta-subtitulo">Completa el formulario para publicar un nuevo servicio en el catálogo. Los campos marcados con <strong>*</strong> son obligatorios.</p>
+
+                <div id="msg-exito" class="msg-exito" role="alert"></div>
+
+                <form id="alta-form" class="alta-form" novalidate>
+
+                    <!-- ── NOMBRE ── -->
+                    <div class="campo-grupo">
+                        <label for="nombre">Nombre del servicio *</label>
+                        <input
+                            type="text"
+                            id="nombre"
+                            name="nombre"
+                            placeholder="Ej: Desarrollo de App Móvil"
+                            maxlength="80"
+                            autocomplete="off"
+                        >
+                        <span class="campo-hint">Entre 3 y 80 caracteres.</span>
+                        <span class="campo-error" id="error-nombre" role="alert"></span>
+                    </div>
+
+                    <!-- ── DESCRIPCIÓN ── -->
+                    <div class="campo-grupo">
+                        <label for="descripcion">Descripción *</label>
+                        <textarea
+                            id="descripcion"
+                            name="descripcion"
+                            placeholder="Describe en qué consiste el servicio y qué valor entrega al cliente..."
+                            maxlength="300"
+                            rows="4"
+                        ></textarea>
+                        <div class="char-count" id="char-count">0 / 300</div>
+                        <span class="campo-error" id="error-descripcion" role="alert"></span>
+                    </div>
+
+                    <!-- ── PRECIO Y TIPO ── -->
+                    <div class="campo-fila">
+                        <div class="campo-grupo">
+                            <label for="precio">Precio (MXN) *</label>
+                            <input
+                                type="number"
+                                id="precio"
+                                name="precio"
+                                placeholder="Ej: 1500"
+                                min="1"
+                                max="99999"
+                                step="1"
+                            >
+                            <span class="campo-hint">Valor en pesos mexicanos, entre $1 y $99,999.</span>
+                            <span class="campo-error" id="error-precio" role="alert"></span>
+                        </div>
+
+                        <div class="campo-grupo">
+                            <label for="tipo_precio">Modalidad de precio</label>
+                            <div class="select-wrap">
+                                <select id="tipo_precio" name="tipo_precio">
+                                    <option value="fijo">Precio fijo (desde $X)</option>
+                                    <option value="hora">Por hora (/ hora)</option>
+                                    <option value="mes">Por mes (/ mes)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ── INGENIEROS ── -->
+                    <div class="campo-grupo">
+                        <label>Ingeniero(s) responsable(s) *</label>
+                        <div class="check-grupo">
+                            <label class="check-item">
+                                <input type="checkbox" name="ingenieros" value="axel">
+                                <span>Axel Dueñas</span>
+                            </label>
+                            <label class="check-item">
+                                <input type="checkbox" name="ingenieros" value="jose">
+                                <span>José Beltran</span>
+                            </label>
+                        </div>
+                        <span class="campo-error" id="error-ingenieros" role="alert"></span>
+                    </div>
+
+                    <div class="form-sep"></div>
+
+                    <!-- ── BADGE E ICONO ── -->
+                    <div class="campo-fila">
+                        <div class="campo-grupo">
+                            <label for="badge">Destacado</label>
+                            <div class="select-wrap">
+                                <select id="badge" name="badge">
+                                    <option value="">Sin destacado</option>
+                                    <option value="popular">Más contratado</option>
+                                    <option value="recomendado">Recomendado</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="campo-grupo">
+                            <label for="icono">Icono</label>
+                            <div class="select-wrap">
+                                <select id="icono" name="icono">
+                                    <!-- Opciones generadas por JS -->
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ── TEMA VISUAL ── -->
+                    <div class="campo-grupo">
+                        <label for="tema">Tema visual de la tarjeta *</label>
+                        <div class="select-wrap">
+                            <select id="tema" name="tema">
+                                <option value="">Selecciona un tema...</option>
+                                <!-- Opciones generadas por JS -->
+                            </select>
+                        </div>
+                        <div class="tema-preview" id="tema-preview"></div>
+                        <span class="campo-error" id="error-tema" role="alert"></span>
+                    </div>
+
+                    <div class="form-sep"></div>
+
+                    <button type="submit" class="btn-submit">
+                        <i class="fa-solid fa-floppy-disk"></i> Guardar servicio
+                    </button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="components.js"></script>
+    <script src="alta.js"></script>
+</body>
+</html>
