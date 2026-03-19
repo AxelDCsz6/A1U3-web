@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>José Beltran — CV | DevCore</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/31ebb5475e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* ── OVERRIDES GLOBALES ── */
+        body {
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        /* Ocultar el pseudo-elemento DEVCORE del navbar base */
+        .cv-navbar::before { display: none; }
+
+        .cv-brand {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 0.82rem;
+            letter-spacing: 0.24em;
+            color: var(--cyan);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .cv-brand:hover { opacity: 0.7; }
+
+        .cv-back {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(246,231,188,0.6);
+            text-decoration: none;
+            font-size: 0.74rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+        .cv-back:hover { color: var(--cream); }
+        .cv-back i { font-size: 0.7rem; }
+
+        /* ── LAYOUT PRINCIPAL ── */
+        .cv-page {
+            display: flex;
+            height: calc(100vh - 64px);
+        }
+
+        /* ── SIDEBAR ── */
+        .cv-sidebar {
+            width: 34%;
+            background: var(--navy);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 9%;
+        }
+
+        /* Textura de puntos */
+        .cv-sidebar::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(circle, rgba(10,196,224,0.12) 1px, transparent 1px);
+            background-size: 22px 22px;
+            pointer-events: none;
+        }
+
+        /* Inicial decorativa de fondo */
+        .cv-sidebar::after {
+            content: attr(data-initial);
+            position: absolute;
+            right: -0.05em;
+            bottom: -0.12em;
+            font-family: 'Playfair Display', serif;
+            font-size: 18rem;
+            font-weight: 700;
+            color: rgba(10,196,224,0.05);
+            line-height: 1;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        .cv-sidebar-inner {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cv-avatar {
+            font-size: 3.8rem;
+            color: var(--cyan);
+            display: block;
+            margin-bottom: 18px;
+        }
+
+        .cv-name {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 2.6vw, 3rem);
+            font-weight: 700;
+            color: var(--cream);
+            line-height: 1.08;
+            margin-bottom: 12px;
+        }
+
+        .cv-accent-line {
+            width: 44px;
+            height: 3px;
+            background: var(--cyan);
+            margin: 18px 0;
+        }
+
+        .cv-contacts {
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+        }
+
+        .cv-contact-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.76rem;
+            color: rgba(246,231,188,0.6);
+        }
+
+        .cv-contact-row i {
+            color: var(--cyan);
+            font-size: 0.72rem;
+            width: 14px;
+            text-align: center;
+        }
+
+        .cv-bio {
+            margin-top: 26px;
+            padding-left: 14px;
+            border-left: 2px solid rgba(10,196,224,0.28);
+            font-size: 0.8rem;
+            font-style: italic;
+            color: rgba(246,231,188,0.38);
+            line-height: 1.8;
+        }
+
+        /* ── CUERPO CV ── */
+        .cv-body {
+            flex: 1;
+            background: var(--cream);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            overflow: hidden;
+        }
+
+        .cv-cell {
+            padding: 20px 22px 16px;
+            border-right: 1px solid rgba(11,45,114,0.14);
+            border-bottom: 1px solid rgba(11,45,114,0.14);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            position: relative;
+            background: var(--white);
+        }
+
+        /* Barra de acento superior */
+        .cv-cell::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--cyan);
+        }
+        .cv-cell:nth-child(2)::before { background: var(--ocean); }
+        .cv-cell:nth-child(3)::before { background: var(--ocean); }
+
+        .cv-cell:nth-child(2n)  { border-right: none; }
+        .cv-cell:nth-child(n+3) { border-bottom: none; }
+
+        /* Celdas superiores: contenido anclado abajo */
+        .cv-cell:nth-child(1),
+        .cv-cell:nth-child(2) {
+            justify-content: flex-end;
+        }
+
+        /* Stack Técnico: subir ligeramente el contenido */
+        .cv-cell:nth-child(1) { padding-bottom: 90px; }
+
+        .cv-cell-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.67rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--ocean);
+            margin-bottom: 12px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(11,45,114,0.1);
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            flex-shrink: 0;
+        }
+
+        .cv-cell-title i { font-size: 0.76rem; }
+
+        /* Tags */
+        .p-skill-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+
+        /* Timeline */
+        .p-timeline { display: flex; flex-direction: column; gap: 11px; }
+        .p-tl-item  { display: grid; grid-template-columns: 58px 1fr; gap: 10px; align-items: start; }
+        .p-tl-year  {
+            font-size: 0.62rem; font-weight: 700; color: var(--cyan);
+            letter-spacing: 0.04em; padding-top: 2px;
+            border-right: 2px solid rgba(10,196,224,0.28);
+            padding-right: 8px; text-align: right; line-height: 1.4;
+        }
+        .p-tl-body        { font-size: 0.76rem; color: var(--navy); line-height: 1.45; }
+        .p-tl-body strong { font-weight: 700; }
+        .p-tl-body small  { color: rgba(11,45,114,0.48); font-size: 0.68rem; display: block; margin-top: 1px; }
+
+        /* Formación */
+        .p-edu       { display: flex; flex-direction: column; gap: 10px; }
+        .p-edu-item  { display: flex; flex-direction: column; gap: 1px; }
+        .p-edu-item strong { font-size: 0.76rem; color: var(--navy); font-weight: 700; }
+        .p-edu-item span   { font-size: 0.68rem; color: rgba(11,45,114,0.48); }
+
+        /* Proyectos */
+        .p-projects     { display: flex; flex-direction: column; gap: 12px; }
+        .p-project      { display: flex; flex-direction: column; gap: 3px; }
+        .p-project-name { font-size: 0.75rem; font-weight: 700; color: var(--ocean); letter-spacing: 0.04em; }
+        .p-project p    { font-size: 0.72rem; color: rgba(11,45,114,0.58); line-height: 1.55; margin: 0; }
+    </style>
+</head>
+<body>
+
+    <div class="navbar cv-navbar">
+        <a href="index.html" class="cv-brand">DEVCORE</a>
+        <a href="index.html#integrantes" class="cv-back">
+            <i class="fa fa-arrow-left"></i> Equipo
+        </a>
+    </div>
+
+    <main class="cv-page">
+
+        <!-- SIDEBAR -->
+        <aside class="cv-sidebar" data-initial="J">
+            <div class="cv-sidebar-inner">
+                <i class="fa fa-user-circle cv-avatar"></i>
+                <h1 class="cv-name">José<br>Beltran</h1>
+                <span class="role-badge">Backend Developer</span>
+                <div class="cv-accent-line"></div>
+                <div class="cv-contacts">
+                    <span class="cv-contact-row"><i class="fa fa-envelope"></i> jose@devcore.io</span>
+                    <span class="cv-contact-row"><i class="fa fa-map-marker"></i> Morelia, MX</span>
+                    <span class="cv-contact-row"><i class="fa fa-github"></i> github.com/jose-b</span>
+                </div>
+                <p class="cv-bio">Backend engineer especializado en sistemas distribuidos y cloud. Diseño infraestructuras que escalan sin drama.</p>
+            </div>
+        </aside>
+
+        <!-- CUERPO -->
+        <section class="cv-body">
+
+            <div class="cv-cell">
+                <h4 class="cv-cell-title"><i class="fa fa-code"></i> Stack Técnico</h4>
+                <div class="p-skill-tags">
+                    <span class="tag tag-primary">Python</span>
+                    <span class="tag tag-primary">Django</span>
+                    <span class="tag tag-primary">FastAPI</span>
+                    <span class="tag tag-secondary">AWS</span>
+                    <span class="tag tag-secondary">PostgreSQL</span>
+                    <span class="tag tag-secondary">Redis</span>
+                    <span class="tag tag-accent">Kubernetes</span>
+                    <span class="tag tag-accent">CI/CD</span>
+                    <span class="tag tag-accent">Terraform</span>
+                </div>
+            </div>
+
+            <div class="cv-cell">
+                <h4 class="cv-cell-title"><i class="fa fa-briefcase"></i> Experiencia</h4>
+                <div class="p-timeline">
+                    <div class="p-tl-item">
+                        <span class="p-tl-year">2022 – hoy</span>
+                        <div class="p-tl-body"><strong>Backend Engineer</strong> — SaaS B2B<br><small>Microservicios escalables con carga de +50 000 req/min</small></div>
+                    </div>
+                    <div class="p-tl-item">
+                        <span class="p-tl-year">2020 – 2022</span>
+                        <div class="p-tl-body"><strong>Dev Backend</strong> — E-commerce<br><small>APIs de pagos, autenticación OAuth2 y procesamiento de pedidos</small></div>
+                    </div>
+                    <div class="p-tl-item">
+                        <span class="p-tl-year">2019 – 2020</span>
+                        <div class="p-tl-body"><strong>Intern Dev</strong> — Consultoría TI<br><small>Scripts de automatización y pipelines ETL para reportes BI</small></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cv-cell">
+                <h4 class="cv-cell-title"><i class="fa fa-graduation-cap"></i> Formación</h4>
+                <div class="p-edu">
+                    <div class="p-edu-item">
+                        <strong>Lic. en Ciencias de la Computación</strong>
+                        <span>UMSNH — 2020</span>
+                    </div>
+                    <div class="p-edu-item">
+                        <strong>AWS Solutions Architect Associate</strong>
+                        <span>Amazon Web Services — 2022</span>
+                    </div>
+                    <div class="p-edu-item">
+                        <strong>Google Cloud Professional Data Engineer</strong>
+                        <span>Google — 2023</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cv-cell">
+                <h4 class="cv-cell-title"><i class="fa fa-rocket"></i> Proyectos Destacados</h4>
+                <div class="p-projects">
+                    <div class="p-project">
+                        <span class="p-project-name">CloudQueue</span>
+                        <p>Sistema de colas distribuidas con SQS + Lambda para procesamiento asíncrono de facturas y notificaciones en tiempo real.</p>
+                    </div>
+                    <div class="p-project">
+                        <span class="p-project-name">DevCore API Gateway</span>
+                        <p>Gateway centralizado con rate limiting, autenticación JWT y monitoreo con Prometheus y Grafana.</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+</html>
