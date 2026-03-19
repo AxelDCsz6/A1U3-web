@@ -114,7 +114,7 @@ export default function AltaPage() {
     setExito(`¡Servicio "${nuevoServicio.nombre}" guardado correctamente! Redirigiendo...`);
     setCampos(CAMPOS_INIT);
 
-    setTimeout(() => navigate('/'), 2000);
+    setTimeout(() => navigate('/servicios'), 2000);
   }
 
   const temaActual = TEMAS.find((t) => t.value === campos.tema);

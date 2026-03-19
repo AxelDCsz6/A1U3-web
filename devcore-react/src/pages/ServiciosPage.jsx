@@ -104,7 +104,7 @@ export default function ServiciosPage() {
       {/* CTA */}
       <div className="seccion-cta">
         <p>¿Tienes un proyecto en mente?</p>
-        <a href="#contacto">Habla con el equipo</a>
+        <Link to="/#integrantes">Habla con el equipo</Link>
       </div>
 
       {/* Agregar servicio */}

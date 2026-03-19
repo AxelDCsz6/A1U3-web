@@ -1,30 +1,23 @@
-import { NavLink } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 export default function Navbar() {
+  const { pathname } = useLocation();
+
   return (
-    <>
-      <nav className="navbar">
-        <ul>
-          <li>
-            <NavLink
-              to="/"
-              className={({ isActive }) => isActive ? 'nav-active' : undefined}
-              end
-            >
-              Servicios
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/alta"
-              className={({ isActive }) => isActive ? 'nav-active' : undefined}
-            >
-              Agregar servicio
-            </NavLink>
-          </li>
-        </ul>
-      </nav>
-      <hr />
-    </>
+    <nav className="navbar">
+      <Link to="/" className="navbar-brand">DEVCORE</Link>
+      <ul>
+        <li>
+          <Link to="/" className={pathname === '/' ? 'nav-active' : ''}>
+            ¿Quiénes somos?
+          </Link>
+        </li>
+        <li>
+          <Link to="/servicios" className={pathname === '/servicios' ? 'nav-active' : ''}>
+            Servicios
+          </Link>
+        </li>
+      </ul>
+    </nav>
   );
 }
