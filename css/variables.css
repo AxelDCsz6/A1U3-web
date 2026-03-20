@@ -1,0 +1,25 @@
+/* ============================================================
+   DEVCORE — variables.css
+   Tokens de diseño: colores, tipografías y métricas base.
+   Paleta: Navy #0B2D72 | Ocean #0992C2 | Cyan #0AC4E0
+           Cream #F6E7BC | Ink #071a46 | White #ffffff
+   Tipografía: Playfair Display (títulos) + Syne (body/UI)
+   ============================================================ */
+
+:root {
+    --navy:      #0B2D72;
+    --ocean:     #0992C2;
+    --cyan:      #0AC4E0;
+    --cream:     #F6E7BC;
+    --cream-dim: #e8d89e;
+    --ink:       #071a46;
+    --white:     #ffffff;
+    --error:     #c0392b;
+
+    --card-expanded-height: 480px;
+
+    --font-display: 'Playfair Display', serif;
+    --font-ui:      'Syne', sans-serif;
+
+    --navbar-height: 64px;
+}

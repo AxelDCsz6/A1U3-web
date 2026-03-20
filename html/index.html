@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Equipo de Desarrollo — DevCore</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <meta name="page-id" content="index">
     <script src="https://kit.fontawesome.com/31ebb5475e.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
+
+    <div class="navbar">
+        <ul>
+            <li><a href="#ancla" class="nav-active">¿Quiénes somos?</a></li>
+            <li><a href="servicios.html">Servicios</a></li>
+        </ul>
+    </div>
+    <hr>
 
     <!-- CONTENIDO PRINCIPAL -->
     <div class="contenido">
@@ -35,7 +43,7 @@
                         <div class="content">
                             <div class="icon">
                                 <i class="fa fa-user-circle" aria-hidden="true"></i>
-                                <h3>Axel Dueñas</h3>
+                                <h2>Axel Dueñas</h2>
                                 <span class="role-badge">Fullstack Developer</span>
                             </div>
                         </div>
@@ -45,7 +53,7 @@
 
                             <div class="cv-header">
                                 <div class="cv-title">
-                                    <h3>Axel Dueñas</h3>
+                                    <h2>Axel Dueñas</h2>
                                     <span class="cv-role">Fullstack Developer</span>
                                 </div>
                                 <div class="cv-contact">
@@ -58,7 +66,7 @@
                             <div class="cv-grid">
 
                                 <div class="cv-section">
-                                    <h4><i class="fa fa-code"></i> Stack Técnico</h4>
+                                    <h3><i class="fa fa-code"></i> Stack Técnico</h3>
                                     <div class="skill-tags">
                                         <span class="tag tag-primary">React</span>
                                         <span class="tag tag-primary">Next.js</span>
@@ -73,7 +81,7 @@
                                 </div>
 
                                 <div class="cv-section">
-                                    <h4><i class="fa fa-briefcase"></i> Experiencia</h4>
+                                    <h3><i class="fa fa-briefcase"></i> Experiencia</h3>
                                     <div class="timeline">
                                         <div class="tl-item">
                                             <span class="tl-year">2023 – hoy</span>
@@ -100,7 +108,7 @@
                                 </div>
 
                                 <div class="cv-section">
-                                    <h4><i class="fa fa-graduation-cap"></i> Formación</h4>
+                                    <h3><i class="fa fa-graduation-cap"></i> Formación</h3>
                                     <div class="edu-item">
                                         <strong>Lic. en Ingeniería en Software</strong>
                                         <span>UNAM — 2020</span>
@@ -116,7 +124,7 @@
                                 </div>
 
                                 <div class="cv-section">
-                                    <h4><i class="fa fa-rocket"></i> Proyectos Destacados</h4>
+                                    <h3><i class="fa fa-rocket"></i> Proyectos Destacados</h3>
                                     <div class="project-item">
                                         <span class="project-name">FinTrack App</span>
                                         <p>Plataforma de seguimiento financiero personal con visualizaciones D3.js y sincronización en tiempo real vía WebSockets.</p>
@@ -143,7 +151,7 @@
                         <div class="content">
                             <div class="icon">
                                 <i class="fa fa-user-circle" aria-hidden="true"></i>
-                                <h3>José Beltran</h3>
+                                <h2>José Beltran</h2>
                                 <span class="role-badge">Backend Developer</span>
                             </div>
                         </div>
@@ -153,7 +161,7 @@
 
                             <div class="cv-header">
                                 <div class="cv-title">
-                                    <h3>José Beltran</h3>
+                                    <h2>José Beltran</h2>
                                     <span class="cv-role">Backend Developer</span>
                                 </div>
                                 <div class="cv-contact">
@@ -166,7 +174,7 @@
                             <div class="cv-grid">
 
                                 <div class="cv-section">
-                                    <h4><i class="fa fa-code"></i> Stack Técnico</h4>
+                                    <h3><i class="fa fa-code"></i> Stack Técnico</h3>
                                     <div class="skill-tags">
                                         <span class="tag tag-primary">Python</span>
                                         <span class="tag tag-primary">Django</span>
@@ -181,7 +189,7 @@
                                 </div>
 
                                 <div class="cv-section">
-                                    <h4><i class="fa fa-briefcase"></i> Experiencia</h4>
+                                    <h3><i class="fa fa-briefcase"></i> Experiencia</h3>
                                     <div class="timeline">
                                         <div class="tl-item">
                                             <span class="tl-year">2022 – hoy</span>
@@ -208,7 +216,7 @@
                                 </div>
 
                                 <div class="cv-section">
-                                    <h4><i class="fa fa-graduation-cap"></i> Formación</h4>
+                                    <h3><i class="fa fa-graduation-cap"></i> Formación</h3>
                                     <div class="edu-item">
                                         <strong>Lic. en Ciencias de la Computación</strong>
                                         <span>UMSNH — 2020</span>
@@ -224,7 +232,7 @@
                                 </div>
 
                                 <div class="cv-section">
-                                    <h4><i class="fa fa-rocket"></i> Proyectos Destacados</h4>
+                                    <h3><i class="fa fa-rocket"></i> Proyectos Destacados</h3>
                                     <div class="project-item">
                                         <span class="project-name">CloudQueue</span>
                                         <p>Sistema de colas distribuidas con SQS + Lambda para procesamiento asíncrono de facturas y notificaciones en tiempo real.</p>
@@ -256,7 +264,21 @@
 
     </div>
 
-    <script src="components.js"></script>
-    <script src="scripts.js"></script>
+    <footer>
+        <span class="footer-mark">DEVCORE</span>
+        <p>© 2025 — Todos los derechos reservados.</p>
+        <div style="display:flex;gap:4px;justify-content:flex-end">
+            <a href="https://validator.w3.org/check?uri=referer">
+                <img src="https://www.w3.org/Icons/valid-html401" alt="Valid HTML" style="border:0;width:88px;height:31px">
+            </a>
+            <a href="https://jigsaw.w3.org/css-validator/check/referer">
+                <img style="border:0;width:88px;height:31px"
+                src="https://jigsaw.w3.org/css-validator/images/vcss-blue"
+                alt="Valid CSS!">
+            </a>
+        </div>
+    </footer>
+
+    <script src="../js/scripts.js"></script>
 </body>
 </html>
